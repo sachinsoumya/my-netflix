@@ -1,11 +1,28 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Header from "./Header";
+import { checkValidData } from "../Utils/Validate";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
+  const email = useRef(null);
+  const password = useRef(null);
+  const name = useRef(null);
 
   const handleSignup = () => {
     setIsSignInForm(!isSignInForm);
+  };
+
+  const handleButtonClick = () => {
+    //* validate the form data
+    const message = checkValidData(email.current.value, password.current.value ,name.current);
+
+    // console.log(email.current.value);
+    // console.log(password.current.value);
+    console.log(name);
+    console.log(message)
+
+    setErrorMessage(message);
   };
 
   return (
@@ -20,30 +37,40 @@ const Login = () => {
       </div>
 
       <div className=" flex justify-center h-full items-center">
-        <form className=" relative bg-black py-8 w-3/4  flex  justify-center align-middle rounded-md bg-opacity-80 ">
+        <form
+          className=" relative bg-black py-8 w-3/4  flex  justify-center align-middle rounded-md bg-opacity-80 "
+          onSubmit={(e) => e.preventDefault()}
+        >
           <div className="w-2/4">
             <div className="text-3xl font-bold text-white">
               {isSignInForm ? "Sign In" : "Sign Up"}
             </div>
             {!isSignInForm && (
               <input
+                ref={name}
                 type="text"
                 placeholder="Full Name"
                 className="px-2 py-3 border-gray-400 my-6 block w-full rounded-md bg-slate-700"
               />
             )}
             <input
+              ref={email}
               type="text"
               placeholder="email address"
               className="px-2 py-3 border-gray-400 my-6 block w-full rounded-md bg-slate-700 "
             />
 
             <input
+              ref={password}
               type="password"
               placeholder="password"
               className="  px-2 py-3 my-6 block w-full rounded-lg bg-slate-700"
             />
-            <button className="px-2 py-2 my-6 w-full bg-red-600 rounded-md ">
+            <p className="text-red-500 ">{errorMessage}</p>
+            <button
+              className="px-2 py-2 my-6 w-full bg-red-600 rounded-md "
+              onClick={handleButtonClick}
+            >
               {isSignInForm ? "Sign in" : "Sign up"}
             </button>
             {/* <div className="text-center text-gray-300">OR</div>
