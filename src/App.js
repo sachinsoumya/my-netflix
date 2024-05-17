@@ -1,9 +1,13 @@
 import Body from "./Components/Body";
+import appStore from "./Utils/appStore";
+import { Provider } from "react-redux";
 
 function App() {
   return (
     <div className="App">
-      <Body />
+      <Provider store={appStore}>
+        <Body />
+      </Provider>
 
       {/* <p className='font-semibold text-stone-600'>
           

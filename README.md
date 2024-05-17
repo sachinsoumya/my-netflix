@@ -7,6 +7,14 @@
 6.Sign Up form
 7.useRef hook
 8.Form Validation
+9.Firebase set up
+10.Deploying our app to production
+11.Lets sign up user
+12.implement sign in 
+13.Created our redux store with userSlice
+14.Implemented sign out.
+15.Update profile 
+16.Fetch TMDB Movies.
 
 # Features -
  - login/Sign up page
