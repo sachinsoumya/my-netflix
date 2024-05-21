@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
 import { BACKGROUND_IMAGE } from "../Utils/constant";
+import { USER_ICON } from "../Utils/constant";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
@@ -56,7 +57,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/80940744?v=4",
+            photoURL:USER_ICON
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;

@@ -28,6 +28,12 @@
 27.Custom hook for getting trailer data.
 28.Update the store with trailer data.
 29.Embedded the YouTube Video and make it auto play and mute and added tailwind for styling.
+30.We will build secondary component.
+31. Built the Secondary Component.
+32. Built MovieList.
+33. Built MovieCard.
+34. Add the TMDB poster image CDN to constant file.
+35. Used custom hooks like useNowPlayingMovies , usePopularMovies , useTopRatedMovies , useUpComingMovies for now playing movies, popular movies, top rated movies and upcoming movies respectively.
 
 # Features -
  - login/Sign up page

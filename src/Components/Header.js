@@ -64,13 +64,13 @@ const Header = () => {
       />
 
       {user && (
-        <div className="flex justify-between flex-nowrap w-2/12">
-          <div className="w-2/4">
-            <img src={user.photoURL} alt="user-icon" />
+        <div className="flex justify-around flex-nowrap w-2/12">
+          <div className="w-1/4">
+            <img src={user.photoURL} alt="user-icon" className="w-full" />
           </div>
 
           <button
-            className="text-black border-black  bg-red-700 rounded-md"
+            className="text-black border-black  bg-red-700 rounded-md h-3/4 p-2"
             onClick={handleSignOut}
           >
             Sign Out
