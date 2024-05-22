@@ -9,11 +9,13 @@ import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { LOGO } from "../Utils/constant";
 import { addGptSearch } from "../Utils/gptSlice";
-
+import { SUPPORTED_LANGUAGES_LIST } from "../Utils/constant";
+import { languageSetting } from "../Utils/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const gpt = useSelector((store) => store.gpt.gptSearch)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,7 +44,7 @@ const Header = () => {
       }
     });
 
-   return ()=>unsubscribe();
+    return () => unsubscribe();
   }, []);
 
   const handleSignOut = () => {
@@ -56,21 +58,34 @@ const Header = () => {
       });
   };
 
-  const handleClick = ()=>{
+  const handleClick = () => {
     dispatch(addGptSearch());
+  };
+
+  const handleLanguageChange = (e)=>{
+    console.log(e.target.value);
+    dispatch(languageSetting(e.target.value))
   }
 
   return (
     <div className="absolute bg-gradient-to-b from-black px-2 py-2 z-40 w-screen flex justify-between">
-      <img
-        src={LOGO}
-        alt="logo"
-        className="w-44 "
-      />
+      <img src={LOGO} alt="logo" className="w-44 " />
 
       {user && (
         <div className="flex justify-around flex-nowrap w-2/12">
-          <button className="bg-dark text-white border border-white rounded-md h-3/4 p-2" onClick={handleClick}>GPT Search</button>
+          {gpt &&<select className="rounded-md h-3/4 p-2" onChange={handleLanguageChange}>
+            {SUPPORTED_LANGUAGES_LIST.map((language) => (
+              <option key={language.name} value={language.identifier}>
+                {language.name}
+              </option>
+            ))}
+          </select>}
+          <button
+            className="bg-dark text-white border border-white rounded-md h-3/4 p-2"
+            onClick={handleClick}
+          >
+            {gpt ? 'Home Page' : 'GPT Search' }
+          </button>
           <div className="w-1/4">
             <img src={user.photoURL} alt="user-icon" className="w-full" />
           </div>

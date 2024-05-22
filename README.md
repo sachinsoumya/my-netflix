@@ -37,6 +37,7 @@
 36.Created GptSearch (parent) , GptSearchBar (child), GptMovieSuggestions(child) Components.
 37.Created redux store with gptSlice . 
 38.Added the GptSearch component as taggable while click on Gpt button in header component using redux store.
+39.Added multilingual feature in our app.
 
 # Features -
  - login/Sign up page
