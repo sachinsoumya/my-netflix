@@ -34,6 +34,9 @@
 33. Built MovieCard.
 34. Add the TMDB poster image CDN to constant file.
 35. Used custom hooks like useNowPlayingMovies , usePopularMovies , useTopRatedMovies , useUpComingMovies for now playing movies, popular movies, top rated movies and upcoming movies respectively.
+36.Created GptSearch (parent) , GptSearchBar (child), GptMovieSuggestions(child) Components.
+37.Created redux store with gptSlice . 
+38.Added the GptSearch component as taggable while click on Gpt button in header component using redux store.
 
 # Features -
  - login/Sign up page

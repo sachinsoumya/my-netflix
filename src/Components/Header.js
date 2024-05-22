@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { LOGO } from "../Utils/constant";
+import { addGptSearch } from "../Utils/gptSlice";
 
 
 const Header = () => {
@@ -55,6 +56,10 @@ const Header = () => {
       });
   };
 
+  const handleClick = ()=>{
+    dispatch(addGptSearch());
+  }
+
   return (
     <div className="absolute bg-gradient-to-b from-black px-2 py-2 z-40 w-screen flex justify-between">
       <img
@@ -65,6 +70,7 @@ const Header = () => {
 
       {user && (
         <div className="flex justify-around flex-nowrap w-2/12">
+          <button className="bg-dark text-white border border-white rounded-md h-3/4 p-2" onClick={handleClick}>GPT Search</button>
           <div className="w-1/4">
             <img src={user.photoURL} alt="user-icon" className="w-full" />
           </div>
