@@ -12,7 +12,7 @@ const MainContainer = () => {
   console.log(mainMovie);
 
   return (
-    <div>
+    <div className="w-full">
       <VideoTitle title={original_title} overview={overview} />
       <VideoBack movieId={id} />
     </div>

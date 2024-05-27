@@ -15,7 +15,7 @@ import { languageSetting } from "../Utils/configSlice";
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-  const gpt = useSelector((store) => store.gpt.gptSearch)
+  const gpt = useSelector((store) => store.gpt.gptSearch);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -62,36 +62,41 @@ const Header = () => {
     dispatch(addGptSearch());
   };
 
-  const handleLanguageChange = (e)=>{
+  const handleLanguageChange = (e) => {
     console.log(e.target.value);
-    dispatch(languageSetting(e.target.value))
-  }
+    dispatch(languageSetting(e.target.value));
+  };
 
   return (
-    <div className="absolute bg-gradient-to-b from-black px-2 py-2 z-40 w-screen flex justify-between">
-      <img src={LOGO} alt="logo" className="w-44 " />
+    <div className="absolute bg-gradient-to-b from-black px-2 py-2 z-40 w-full flex justify-between ">
+      <img src={LOGO} alt="logo" className="w-40" />
 
       {user && (
-        <div className="flex justify-around flex-nowrap w-2/12">
-          {gpt &&<select className="rounded-md h-3/4 p-2" onChange={handleLanguageChange}>
-            {SUPPORTED_LANGUAGES_LIST.map((language) => (
-              <option key={language.name} value={language.identifier}>
-                {language.name}
-              </option>
-            ))}
-          </select>}
+        <div className="flex justify-around flex-nowrap">
+          <div className="w-full mx-2 ">
+            <img src={user.photoURL} alt="user-icon" className="w-full rounded-full" />
+          </div>
+          {gpt && (
+            <select
+              className="rounded-md h-3/4 p-2"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES_LIST.map((language) => (
+                <option key={language.name} value={language.identifier}>
+                  {language.name}
+                </option>
+              ))}
+            </select>
+          )}
           <button
-            className="bg-dark text-white border border-white rounded-md h-3/4 p-2"
+            className="bg-black text-white border border-white rounded-md h-4/4 p-2 mx-2"
             onClick={handleClick}
           >
-            {gpt ? 'Home Page' : 'GPT Search' }
+            {gpt ? "Home " : "GPT "}
           </button>
-          <div className="w-1/4">
-            <img src={user.photoURL} alt="user-icon" className="w-full" />
-          </div>
 
           <button
-            className="text-black border-black  bg-red-700 rounded-md h-3/4 p-2"
+            className="text-black border-black  bg-red-700 rounded-md h-4/4 p-2 mx-2"
             onClick={handleSignOut}
           >
             Sign Out

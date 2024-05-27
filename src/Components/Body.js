@@ -16,7 +16,7 @@ const Body = () => {
   ]);
 
   return (
-    <div className="h-auto">
+    <div className="h-auto w-full overflow-hidden">
       <RouterProvider router={appRouter} />
     </div>
   );

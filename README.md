@@ -38,6 +38,8 @@
 37.Created redux store with gptSlice . 
 38.Added the GptSearch component as taggable while click on Gpt button in header component using redux store.
 39.Added multilingual feature in our app.
+40.Integrate GPT APT 
+41.Added the functionality to search movies using GPT.
 
 # Features -
  - login/Sign up page
