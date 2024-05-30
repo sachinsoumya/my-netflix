@@ -4,6 +4,7 @@ import GptSearchBar from './GptSearchBar'
 import { BACKGROUND_IMAGE } from '../Utils/constant'
 
 const GptSearch = () => {
+  console.log(process.env.REACT_APP_OPEN_AI_KEY )
   return (
     <div>
         <div className="absolute w-full h-full -z-30">

@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
+import lang from "../Utils/languageConstant";
 import { checkValidData } from "../Utils/Validate";
+import { useSelector } from "react-redux";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -22,6 +24,7 @@ const Login = () => {
   const name = useRef(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const languageKey = useSelector((store) => store.config.lang);
 
   const handleSignup = () => {
     setIsSignInForm(!isSignInForm);
@@ -57,7 +60,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:USER_ICON
+            photoURL: USER_ICON,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -127,29 +130,31 @@ const Login = () => {
           className=" relative bg-black py-8 w-3/4  flex  justify-center align-middle rounded-md bg-opacity-80 "
           onSubmit={(e) => e.preventDefault()}
         >
-          <div className="w-2/4">
-            <div className="text-3xl font-bold text-white">
-              {isSignInForm ? "Sign In" : "Sign Up"}
+          <div className="lg:w-2/4 md:w-4/6 w-5/6">
+            <div className="text-3xl font-bold text-white ">
+              {isSignInForm
+                ? lang[languageKey].signIn
+                : lang[languageKey].signUp}
             </div>
             {!isSignInForm && (
               <input
                 ref={name}
                 type="text"
-                placeholder="Full Name"
+                placeholder={lang[languageKey].namePlaceholder}
                 className="px-2 py-3 border-gray-400 my-6 block w-full rounded-md bg-slate-700"
               />
             )}
             <input
               ref={email}
               type="text"
-              placeholder="email address"
+              placeholder={lang[languageKey].emailPlaceholder}
               className="px-2 py-3 border-gray-400 my-6 block w-full rounded-md bg-slate-700 "
             />
 
             <input
               ref={password}
               type="password"
-              placeholder="password"
+              placeholder={lang[languageKey].passwordPlaceholder}
               className="  px-2 py-3 my-6 block w-full rounded-lg bg-slate-700"
             />
             <p className="text-red-500 ">{errorMessage}</p>
@@ -157,28 +162,30 @@ const Login = () => {
               className="px-2 py-2 my-6 w-full bg-red-600 rounded-md "
               onClick={handleButtonClick}
             >
-              {isSignInForm ? "Sign in" : "Sign up"}
+              {isSignInForm
+                ? lang[languageKey].signIn
+                : lang[languageKey].signUp}
             </button>
             {/* <div className="text-center text-gray-300">OR</div>
             <button className="px-2 py-2 my-6 w-full bg-red-600 rounded-md ">Sign in</button> */}
             {isSignInForm ? (
-              <div className="text-slate-400">
-                New to NetFlix ?{" "}
+              <div className="text-slate-400 text-sm md:text-base">
+                {lang[languageKey].newNetFlix} ?{" "}
                 <span
                   onClick={handleSignup}
                   className="cursor-pointer text-white"
                 >
-                  Sign up Now
+                  {lang[languageKey].signUp} {lang[languageKey].now}
                 </span>
               </div>
             ) : (
-              <div className="text-slate-400">
-                Already Registered ?{" "}
+              <div className="text-slate-400 text-sm md:text-base">
+                {lang[languageKey].alreadyRegis} ?{" "}
                 <span
                   onClick={handleSignup}
                   className="cursor-pointer text-white"
                 >
-                  Sign in Now
+                  {lang[languageKey].signIn} {lang[languageKey].now}
                 </span>
               </div>
             )}

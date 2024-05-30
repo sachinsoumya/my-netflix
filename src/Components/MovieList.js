@@ -12,8 +12,8 @@ const MovieList = ({ title, movies }) => {
       <div className="flex">
         {/* <div className="flex"> */}
         <Swiper
-          slidesPerView={1}
-          spaceBetween={10}
+          slidesPerView={2}
+          spaceBetween={20}
           navigation={true}
           breakpoints={{
             640: {
@@ -33,7 +33,7 @@ const MovieList = ({ title, movies }) => {
           className="mySwiper"
         >
           {movies?.map((movie, index) => (
-            <SwiperSlide>
+            <SwiperSlide className="transition-all hover:scale-110">
               <MovieCard posterPath={movie.poster_path} key={movie.id} />
             </SwiperSlide>
           ))}
