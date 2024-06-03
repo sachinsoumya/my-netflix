@@ -8,6 +8,7 @@ import useTopRatedMovies from "../customHook/useTopRatedMovies";
 import useUpComingMovies from "../customHook/useUpComingMovies";
 import GptSearch from "./GptSearch";
 import { useSelector } from "react-redux";
+import MovieDetails from "./MovieDetails";
 
 const Browser = () => {
   useNowPlayingMovies();
@@ -19,7 +20,9 @@ const Browser = () => {
 
   return (
     <div>
+      {/* <MovieDetails /> */}
       <Header />
+
       {gpt ? (
         <GptSearch />
       ) : (

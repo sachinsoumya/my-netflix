@@ -2,6 +2,7 @@ import React from "react";
 import MovieList from "./MovieList";
 import { useSelector } from "react-redux";
 import lang from "../Utils/languageConstant";
+import MovieDetails from "./MovieDetails";
 
 const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
@@ -12,6 +13,7 @@ const SecondaryContainer = () => {
   return (
     movies.nowPlayingMovies && (
       <div className="bg-black">
+        
         <div className="relative md:-mt-16 lg:-mt-52 bg-transparent  text-white ">
           <MovieList
             title={lang[languageKey].nowPlaying}
@@ -30,6 +32,7 @@ const SecondaryContainer = () => {
             movies={movies.upComingMovies}
           />
         </div>
+       
 
         {/* MovieList - Popular 
         -MovieCard

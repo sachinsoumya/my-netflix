@@ -37,9 +37,11 @@
 40.Integrate GPT APT
 41.Added the functionality to search movies using GPT.
 42.Added a .env file for in root directory to make api secure.
-
 43.Added responsive features for large , medium and small screen.
 44.Added hover effect to the MovieCard Component.
+45.Used React portals for pop up modal trailer video and info.
+46.Created a new state modalTrailerVideo in movieSlice in redux store.
+47.and update that state using addModalTrailerVideo action .
 
 # Features -
 

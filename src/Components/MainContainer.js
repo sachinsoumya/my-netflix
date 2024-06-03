@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import VideoBack from "./VideoBack";
 import VideoTitle from "./VideoTitle";
+// import MovieDetails from "./MovieDetails";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
@@ -13,6 +14,8 @@ const MainContainer = () => {
 
   return (
     <div className="w-full">
+      {/* <MovieDetails /> */}
+
       <VideoTitle title={original_title} overview={overview} />
       <VideoBack movieId={id} />
     </div>

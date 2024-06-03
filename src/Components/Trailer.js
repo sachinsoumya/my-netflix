@@ -1,20 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import useMovieTrailer from "../customHook/useMovieTrailer";
-const VideoBack = ({ movieId }) => {
-  const trailerData = useSelector((store) => store.movies?.trailerVideo);
+import { useSelector } from "react-redux";
 
+const Trailer = ({ movieId }) => {
   useMovieTrailer(movieId);
 
-  if (!trailerData) return;
+  const movieTrailerData = useSelector(
+    (store) => store.movies.modalTrailerVideo
+  );
 
+  if (!movieTrailerData) return;
   return (
     <div className="w-full">
       <iframe
-        className="w-full aspect-video "
+        className="w-full aspect-video mx-auto object-cover"
         src={
           "https://www.youtube.com/embed/" +
-          trailerData.key +
+          movieTrailerData.key +
           "?autoplay=1&mute=1"
         }
         title="YouTube video player"
@@ -26,4 +28,4 @@ const VideoBack = ({ movieId }) => {
   );
 };
 
-export default VideoBack;
+export default Trailer;

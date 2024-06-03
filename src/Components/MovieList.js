@@ -34,7 +34,7 @@ const MovieList = ({ title, movies }) => {
         >
           {movies?.map((movie, index) => (
             <SwiperSlide className="transition-all hover:scale-110">
-              <MovieCard posterPath={movie.poster_path} key={movie.id} />
+              <MovieCard posterPath={movie.poster_path} movieId={movie.id} key={movie.id} />
             </SwiperSlide>
           ))}
         </Swiper>
