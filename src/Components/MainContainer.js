@@ -16,7 +16,7 @@ const MainContainer = () => {
     <div className="w-full">
       {/* <MovieDetails /> */}
 
-      <VideoTitle title={original_title} overview={overview} />
+      <VideoTitle title={original_title} overview={overview} movieId={id} />
       <VideoBack movieId={id} />
     </div>
   );

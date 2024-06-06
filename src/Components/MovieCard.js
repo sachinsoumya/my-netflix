@@ -17,14 +17,13 @@ const MovieCard = ({ posterPath, movieId }) => {
     const json = await data.json();
 
     console.log(json);
-
     dispatch(addMovieDetails(json));
   };
 
   return (
     posterPath && (
-      <div className="w-52 px-2 relative group">
-        <div className="bg-transparent w-full h-full  text-center absolute flex justify-center items-center group-hover:bg-black group-hover:opacity-30  ">
+      <div className="w-52 px-2 relative group ">
+        <div className="bg-transparent w-full h-full text-center absolute flex justify-center items-center group-hover:bg-black group-hover:opacity-30  ">
           <button
             className="border border-black border-transparent bg-transparent  text-transparent  text-center p-2 rounded-lg font-bold text-lg cursor-pointer group-hover:text-black group-hover:bg-white "
             onClick={handleClick}
@@ -34,7 +33,7 @@ const MovieCard = ({ posterPath, movieId }) => {
           </button>
         </div>
 
-        <img src={IMG_CDN + posterPath} alt="poster" className="rounded-lg  " />
+        <img src={IMG_CDN + posterPath} alt="poster" className="rounded-lg " />
       </div>
     )
   );

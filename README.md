@@ -39,9 +39,15 @@
 42.Added a .env file for in root directory to make api secure.
 43.Added responsive features for large , medium and small screen.
 44.Added hover effect to the MovieCard Component.
-45.Used React portals for pop up modal trailer video and info.
+45.Used React portals for pop up modal trailer video and info in MovieDetails component.
 46.Created a new state modalTrailerVideo in movieSlice in redux store.
-47.and update that state using addModalTrailerVideo action .
+47.and update that state using addModalTrailerVideo action (dispatch action)
+48.Subscribe that store using usSelector hook provided by react-redux and update the MovieDetails component.
+49.Added the functionality to close the modal (MovieDetails component) by subscribing to store , dispatch an action and conditional rendering.
+50.Created Recommend , RecommendCard component and used custom hook like useMovieRecommend to get recommended movies as per a particular movieId.
+51.Stored recommended movie data in recommendedMovies state in movieSlice in redux store.
+52.Subscribe that store by useSelector hook and update the UI of Recommend component.
+53.Also created a separate component like About to have complete movie details below Recommend component and the data is coming to this component as props.
 
 # Features -
 
