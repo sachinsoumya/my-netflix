@@ -39,7 +39,7 @@
 42.Added a .env file for in root directory to make api secure.
 43.Added responsive features for large , medium and small screen.
 44.Added hover effect to the MovieCard Component.
-45.Used React portals for pop up modal trailer video and info in MovieDetails component.
+45.Used conditional rendering ofMovieDetails component for pop up modal trailer video and info .
 46.Created a new state modalTrailerVideo in movieSlice in redux store.
 47.and update that state using addModalTrailerVideo action (dispatch action)
 48.Subscribe that store using usSelector hook provided by react-redux and update the MovieDetails component.
@@ -48,6 +48,9 @@
 51.Stored recommended movie data in recommendedMovies state in movieSlice in redux store.
 52.Subscribe that store by useSelector hook and update the UI of Recommend component.
 53.Also created a separate component like About to have complete movie details below Recommend component and the data is coming to this component as props.
+54.Created FullTrailer component to view the full trailer in a separate route like /watch when we click on on the play button on poster in MovieDetails component and play button on VideoTitle component.
+55.Did router configuration for FullTrailer component.
+56.Used ref variable using useRef hook for conditional rendering of MovieDetails component and routing to FullTrailer component.
 
 # Features -
 

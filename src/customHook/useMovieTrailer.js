@@ -33,7 +33,7 @@ const useMovieTrailer = (movieId) => {
     dispatch(addTrailerVideo(trailer));
   };
 
-  const getModalMovieTrailer = async()=>{
+  const getModalMovieTrailer = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/" +
         movieId +
@@ -50,9 +50,7 @@ const useMovieTrailer = (movieId) => {
 
     console.log(trailer);
     dispatch(addModalTrailerVideo(trailer));
-
-
-  }
+  };
 };
 
 export default useMovieTrailer;

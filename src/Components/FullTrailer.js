@@ -1,17 +1,12 @@
 import React from "react";
-import useMovieTrailer from "../customHook/useMovieTrailer";
 import { useSelector } from "react-redux";
 
-const Trailer = ({ movieId }) => {
-  useMovieTrailer(movieId );
-
+const FullTrailer = () => {
   const movieTrailerData = useSelector(
     (store) => store.movies.modalTrailerVideo
   );
-
-  if (!movieTrailerData) return;
   return (
-    <div className="w-full">
+    <div className="w-full  lg:h-auto lg:flex-none lg:items-start  h-screen flex items-center bg-black">
       <iframe
         className="w-full aspect-video mx-auto object-cover"
         src={
@@ -28,4 +23,4 @@ const Trailer = ({ movieId }) => {
   );
 };
 
-export default Trailer;
+export default FullTrailer;

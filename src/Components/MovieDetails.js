@@ -5,8 +5,22 @@ import Trailer from "./Trailer";
 import Details from "./Details";
 import Recommend from "./Recommend";
 import AboutMovie from "./AboutMovie";
+// import { createBrowserRouter } from "react-router-dom";
 
 const MovieDetails = () => {
+
+  // const appRouter = createBrowserRouter([
+  //   {
+  //     path:'/',
+  //     element:<MovieDetails />,
+
+  //   },
+  //   {
+  //     path:"/watch",
+  //     element:<Trailer />
+  //   }
+  // ])
+
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(addMovieDetails(null));

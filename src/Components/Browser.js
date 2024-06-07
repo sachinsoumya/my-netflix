@@ -17,10 +17,11 @@ const Browser = () => {
   useUpComingMovies();
 
   const gpt = useSelector((store) => store.gpt.gptSearch);
+  const movieDetails = useSelector((store) => store.movies.movieDetails);
 
   return (
     <div>
-      {/* <MovieDetails /> */}
+     {movieDetails && <MovieDetails />}
       <Header />
 
       {gpt ? (

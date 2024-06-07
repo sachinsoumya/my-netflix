@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import { API_OPTIONS } from "../Utils/constant";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addMovieDetails } from "../Utils/movieSlice";
+import { useNavigate } from "react-router-dom";
 
 const VideoTitle = ({ title, overview, movieId }) => {
+  const ref = useRef(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const movieDetails = useSelector((store) => store.movies.movieDetails);
 
-  const handleClick = async () => {
+  const handlePlay = async () => {
     const data = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
       API_OPTIONS
@@ -14,8 +18,26 @@ const VideoTitle = ({ title, overview, movieId }) => {
     const json = await data.json();
 
     console.log(json);
+
+    ref.current = !ref.current;
     dispatch(addMovieDetails(json));
   };
+  const handleMoreInfo = async () => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+      API_OPTIONS
+    );
+    const json = await data.json();
+
+    console.log(json);
+
+    dispatch(addMovieDetails(json));
+  };
+
+  if (ref.current && movieDetails && movieDetails.original_title === title) {
+    navigate("/watch");
+    dispatch(addMovieDetails(null));
+  }
   return (
     <div className=" w-full aspect-video px-7 absolute  text-white bg-gradient-to-r from-black flex ">
       <div className="lg:w-1/3 md:w-2/4  w-2/4 self-end md:self-center">
@@ -24,13 +46,16 @@ const VideoTitle = ({ title, overview, movieId }) => {
           {overview}
         </div>
         <div className="flex py-2">
-          <button className="bg-white text-black border-black-300 p-2 lg:text-2xl md:text-xl text-xs font-medium text-center rounded-md w-2/3 hover:bg-opacity-80">
+          <button
+            className="bg-white text-black border-black-300 p-2 lg:text-2xl md:text-xl text-xs font-medium text-center rounded-md w-2/3 hover:bg-opacity-80"
+            onClick={handlePlay}
+          >
             {" "}
             ▶️ Play
           </button>
           <button
             className="bg-gray-300 text-white border-black-300 p-2 mx-2 lg:text-2xl md:text-xl  text-xs font-medium text-center rounded-md w-2/3 bg-opacity-20 hover:bg-opacity-25"
-            onClick={handleClick}
+            onClick={handleMoreInfo}
           >
             More Info
           </button>

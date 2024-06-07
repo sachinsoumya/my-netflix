@@ -1,5 +1,6 @@
 import React from "react";
 import { IMG_CDN } from "../Utils/constant";
+import { Link } from "react-router-dom";
 
 const AboutMovie = ({
   popularity,
@@ -25,7 +26,11 @@ const AboutMovie = ({
           alt="moviePoster"
           className="w-full object-cover rounded-lg"
         />
-        <div className="absolute top-32 left-20 text-2xl hidden group-hover:block cursor-pointer">▶️</div>
+        <Link to={"/watch"}>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl hidden group-hover:block cursor-pointer">
+            ▶️
+          </div>
+        </Link>
       </div>
 
       <div className="py-3 font-bold">Trailer:{originalTitle}</div>
