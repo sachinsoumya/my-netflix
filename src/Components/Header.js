@@ -115,7 +115,7 @@ const Header = () => {
           className="rounded-md h-3/4 p-2"
           onChange={handleLanguageChange}
         >
-          {SUPPORTED_LANGUAGES_LIST.map((language) => (
+          {SUPPORTED_LANGUAGES_LIST?.map((language) => (
             <option key={language.name} value={language.identifier}>
               {language.name}
             </option>

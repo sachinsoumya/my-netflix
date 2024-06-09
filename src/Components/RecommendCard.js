@@ -32,7 +32,9 @@ const RecommendCard = ({
         </div>
 
         {/* <MovieCard posterPath={posterPath} overview={overview} /> */}
-        <div className=" w-full text-justify py-3">{overview}</div>
+        <div className=" w-full text-justify py-3">
+          { overview.length > 505 ? overview.slice(0, 505) : overview}
+        </div>
       </div>
     </div>
   );

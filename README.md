@@ -51,6 +51,10 @@
 54.Created FullTrailer component to view the full trailer in a separate route like /watch when we click on on the play button on poster in MovieDetails component and play button on VideoTitle component.
 55.Did router configuration for FullTrailer component.
 56.Used ref variable using useRef hook for conditional rendering of MovieDetails component and routing to FullTrailer component.
+57.Did error handling and navigate to error route if any error comes.
+58.Worked on recommended card text and decrease its length conditionally.
+59.Expand and collapse the recommended cards lists by clicking on arrow button . 
+
 
 # Features -
 

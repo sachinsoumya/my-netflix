@@ -3,21 +3,29 @@ import { IMG_CDN } from "../Utils/constant";
 import { API_OPTIONS } from "../Utils/constant";
 import { useDispatch } from "react-redux";
 import { addMovieDetails } from "../Utils/movieSlice";
+import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ posterPath, movieId }) => {
   //poster path not present handle it  absolute w-full h-full bg-transparent rounded-lg px-3 hover:bg-black hover:opacity-70
 
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const handleClick = async () => {
-    const data = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
-      API_OPTIONS
-    );
-    const json = await data.json();
+    try {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+        API_OPTIONS
+      );
+      const json = await data.json();
 
-    console.log(json);
-    dispatch(addMovieDetails(json));
+      console.log(json);
+      dispatch(addMovieDetails(json));
+    } catch (e) {
+      console.log(e);
+      navigate("/error", { state: e });
+    }
   };
 
   return (

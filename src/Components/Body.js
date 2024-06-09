@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "./Login";
 import Browser from "./Browser";
+import Error from "./Error";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import { useSelector } from "react-redux";
 
@@ -21,6 +22,10 @@ const Body = () => {
       path: "/watch",
       element: <FullTrailer />,
     },
+    {
+      path:"/error",
+      element:<Error />
+    }
   ]);
 
   //TODO const movieDetails = useSelector((store) => store.movies.movieDetails);

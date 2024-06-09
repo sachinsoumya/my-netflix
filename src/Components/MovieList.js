@@ -10,7 +10,6 @@ const MovieList = ({ title, movies }) => {
     <div>
       <div className="font-semibold text-xl py-3 px-2">{title}</div>
       <div className="flex">
-        {/* <div className="flex"> */}
         <Swiper
           slidesPerView={2}
           spaceBetween={20}
@@ -34,11 +33,14 @@ const MovieList = ({ title, movies }) => {
         >
           {movies?.map((movie, index) => (
             <SwiperSlide className="transition-all hover:scale-110">
-              <MovieCard posterPath={movie.poster_path} movieId={movie.id} key={movie.id} />
+              <MovieCard
+                posterPath={movie.poster_path}
+                movieId={movie.id}
+                key={movie.id}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
-        {/* </div> */}
       </div>
     </div>
   );

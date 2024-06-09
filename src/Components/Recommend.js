@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import useMovieRecommend from "../customHook/useMovieRecommend";
 import { useSelector } from "react-redux";
 import MovieCard from "./MovieCard";
 import RecommendCard from "./RecommendCard";
 
 const Recommend = ({ movieId }) => {
+  const [expand, setExpand] = useState(false);
   console.log(movieId);
   useMovieRecommend(movieId);
   const recommendedMovies = useSelector(
@@ -14,24 +15,54 @@ const Recommend = ({ movieId }) => {
   if (!recommendedMovies) return null;
   return (
     <div className="w-full h-6/12 px-10 py-3">
-      <div className="text-white text-lg font-semibold">More Like This</div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 w-full h-full ">
+      <div className="text-white text-xl font-semibold font-sans">
+        More Like This
+      </div>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 w-full h-full py-3 ">
         {/* <MovieCard
         posterPath={recommendedMovies[0].poster_path}
         movieId={recommendedMovies[0].id} 
       
       /> */}
 
-        {recommendedMovies.map((item, index) => (
-          <RecommendCard
-            posterPath={item.poster_path}
-            overview={item.overview}
-            adult={item.adult}
-            releaseDate={item.release_date}
-            popularity={item.popularity}
-            title={item.title}
-          />
-        ))}
+        {recommendedMovies.length ? (
+          expand ? (
+            recommendedMovies.map((item, index) => (
+              <RecommendCard
+                posterPath={item.poster_path}
+                overview={item.overview}
+                adult={item.adult}
+                releaseDate={item.release_date}
+                popularity={item.popularity}
+                title={item.title}
+              />
+            ))
+          ) : (
+            recommendedMovies
+              .slice(0, 9)
+              .map((item, index) => (
+                <RecommendCard
+                  posterPath={item.poster_path}
+                  overview={item.overview}
+                  adult={item.adult}
+                  releaseDate={item.release_date}
+                  popularity={item.popularity}
+                  title={item.title}
+                />
+              ))
+          )
+        ) : (
+          <div>No movies</div>
+        )}
+      </div>
+      <div className="relative">
+        <hr className="h-px my-2 bg-white border-0 "></hr>
+        <div
+          className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+          onClick={() => setExpand(!expand)}
+        >
+          {expand ? "⬆️" : "⬇️"}
+        </div>
       </div>
     </div>
   );
