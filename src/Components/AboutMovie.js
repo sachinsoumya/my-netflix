@@ -1,6 +1,9 @@
 import React from "react";
 import { IMG_CDN } from "../Utils/constant";
 import { Link } from "react-router-dom";
+import lang from "../Utils/languageConstant";
+import { PlayCircleIcon } from "@heroicons/react/24/solid";
+import { useSelector } from "react-redux";
 
 const AboutMovie = ({
   popularity,
@@ -16,9 +19,14 @@ const AboutMovie = ({
   tagline,
   status,
 }) => {
+  const languageKey = useSelector((store) => store.config.lang);
+
   return (
     <div className="px-10 py-2">
-      <div className="font-medium text-lg">Trailers and more</div>
+      <div className="font-medium text-lg">
+        {" "}
+        {lang[languageKey].trailersAndMore}
+      </div>
 
       <div className="lg:w-1/6 w-2/6 py-2 relative group">
         <img
@@ -28,7 +36,7 @@ const AboutMovie = ({
         />
         <Link to={"/watch"}>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl hidden group-hover:block cursor-pointer">
-            ▶️
+            <PlayCircleIcon className="size-10 text-white  " />
           </div>
         </Link>
       </div>

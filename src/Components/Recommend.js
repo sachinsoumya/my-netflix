@@ -3,6 +3,8 @@ import useMovieRecommend from "../customHook/useMovieRecommend";
 import { useSelector } from "react-redux";
 import MovieCard from "./MovieCard";
 import RecommendCard from "./RecommendCard";
+import lang from "../Utils/languageConstant";
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 
 const Recommend = ({ movieId }) => {
   const [expand, setExpand] = useState(false);
@@ -12,11 +14,13 @@ const Recommend = ({ movieId }) => {
     (store) => store.movies.recommendedMovies
   );
 
+  const languageKey = useSelector((store) => store.config.lang);
+
   if (!recommendedMovies) return null;
   return (
     <div className="w-full h-6/12 px-10 py-3">
       <div className="text-white text-xl font-semibold font-sans">
-        More Like This
+        {lang[languageKey].moreLikeThis}
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 w-full h-full py-3 ">
         {/* <MovieCard
@@ -61,7 +65,11 @@ const Recommend = ({ movieId }) => {
           className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
           onClick={() => setExpand(!expand)}
         >
-          {expand ? "⬆️" : "⬇️"}
+          {expand ? (
+            <ChevronUpIcon className="size-6 text-white border border-white rounded-full hover:bg-slate-400" />
+          ) : (
+            <ChevronDownIcon className="size-6 text-white border border-white rounded-full hover:bg-slate-400" />
+          )}
         </div>
       </div>
     </div>

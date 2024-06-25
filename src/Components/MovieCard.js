@@ -4,6 +4,7 @@ import { API_OPTIONS } from "../Utils/constant";
 import { useDispatch } from "react-redux";
 import { addMovieDetails } from "../Utils/movieSlice";
 import { useNavigate } from "react-router-dom";
+// import { PlayCircleIcon } from "@heroicons/react/24/solid";
 
 const MovieCard = ({ posterPath, movieId }) => {
   //poster path not present handle it  absolute w-full h-full bg-transparent rounded-lg px-3 hover:bg-black hover:opacity-70
@@ -37,7 +38,7 @@ const MovieCard = ({ posterPath, movieId }) => {
             onClick={handleClick}
           >
             {" "}
-            ▶️ Play{" "}
+            More Info
           </button>
         </div>
 

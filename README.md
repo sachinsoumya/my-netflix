@@ -34,7 +34,7 @@
 37.Created redux store with gptSlice .
 38.Added the GptSearch component as taggable while click on Gpt button in header component using redux store.
 39.Added multilingual feature in our app.
-40.Integrate GPT APT
+40.Integrate GPT API
 41.Added the functionality to search movies using GPT.
 42.Added a .env file for in root directory to make api secure.
 43.Added responsive features for large , medium and small screen.
@@ -53,7 +53,10 @@
 56.Used ref variable using useRef hook for conditional rendering of MovieDetails component and routing to FullTrailer component.
 57.Did error handling and navigate to error route if any error comes.
 58.Worked on recommended card text and decrease its length conditionally.
-59.Expand and collapse the recommended cards lists by clicking on arrow button . 
+59.Expand and collapse the recommended cards lists by clicking on arrow button .
+60.Added the functionality to add movies to myList and remove from myList.
+61.Used firebase database (FireStore) to create the collection of each user and add the documents to that collection and its document contains two fields like movie id and poster path.
+
 
 
 # Features -
@@ -68,6 +71,7 @@
   - Title and description
   - MovieSuggestion
     - MovieLists
+        - Details of movie along with its trailer ,descriptions like overview , genres and  recommended movie lists 
 - NetFlix gpt
   -Search bar
   -Movie Suggestion

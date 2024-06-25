@@ -5,6 +5,9 @@ import Trailer from "./Trailer";
 import Details from "./Details";
 import Recommend from "./Recommend";
 import AboutMovie from "./AboutMovie";
+
+import { XMarkIcon } from "@heroicons/react/24/outline";
+
 // import { createBrowserRouter } from "react-router-dom";
 
 const MovieDetails = () => {
@@ -21,7 +24,7 @@ const MovieDetails = () => {
         <div className="lg:h-11/12 border lg:w-3/4 border-black  fixed w-full h-full overflow-y-scroll   bg-zinc-900 font-sans overflow-x-hidden ">
           <div className="absolute right-9 top-3 z-50">
             <div onClick={handleClick} className="cursor-pointer text-white ">
-              ✖️
+              <XMarkIcon className="size-7 text-white border border-white bg-black rounded-full " />
             </div>
           </div>
           <Trailer movieId={movieDetails.id} />

@@ -8,7 +8,7 @@ const lang = {
     already_registered: " Already Registered",
     now: "Now",
     gpt: "GPT",
-    home:"Home",
+    home: "Home",
     emailPlaceholder: "email address",
     namePlaceholder: "Full Name",
     passwordPlaceholder: "password",
@@ -18,6 +18,8 @@ const lang = {
     upComing: "UpComing",
     newNetFlix: "New to NetFlix ",
     alreadyRegis: "Already Registered",
+    moreLikeThis: "More Like This",
+    trailersAndMore: "Trailers and more",
   },
   hindi: {
     search: "खोज",
@@ -28,8 +30,8 @@ const lang = {
     already_registered: " पहले साइन अप किया",
     now: "अभी",
     gpt: "जीपीटी",
-    home:"होम पेज",
-    
+    home: "होम पेज",
+
     emailPlaceholder: "ईमेल पता",
     namePlaceholder: "पूरा नाम",
     passwordPlaceholder: "पासवर्ड",
@@ -39,6 +41,8 @@ const lang = {
     upComing: "आगामी",
     newNetFlix: "नेटफ्लिक्स पर नया",
     alreadyRegis: "पहले साइन अप किया",
+    moreLikeThis: "समान फिल्में",
+    trailersAndMore: "ट्रेलर और बहुत कुछ",
   },
   spanish: {
     search: "Buscar",
@@ -49,7 +53,7 @@ const lang = {
     already_registered: "Ya estás registrado",
     now: "Ahora",
     gpt: "GPT",
-    home:"Home",
+    home: "Home",
     emailPlaceholder: "dirección de correo electrónico",
     namePlaceholder: "Nombre Completo",
     passwordPlaceholder: "contraseña",
@@ -59,6 +63,8 @@ const lang = {
     upComing: "Próximos",
     newNetFlix: "Nuevos en NetFlix",
     alreadyRegis: "Ya estás registrado",
+    moreLikeThis: "más como esto",
+    trailersAndMore: "Remolques y más",
   },
 };
 

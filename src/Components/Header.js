@@ -1,6 +1,6 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../Utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -70,21 +70,46 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute bg-gradient-to-b from-black px-2 py-2 z-40 w-full flex justify-between h-1/12 lg:h-auto">
+    <div className="fixed bg-gradient-to-b from-black px-2 py-2 z-40 w-full flex justify-between h-1/12 lg:h-auto ">
       <img src={LOGO} alt="logo" className="w-24 lg:w-40" />
 
       {user ? (
-        <div className="flex justify-around flex-nowrap w-2/4 ">
-          {/** w-auto */}
-          <div className="w-full mx-2 ">
-            <img
-              src={user.photoURL}
-              alt="user-icon"
-              className=" rounded-full"
-            />{" "}
-            {/** lg:w-full */}
+        <div className="flex justify-between  flex-nowrap w-full">
+          <div className="flex flex-nowrap w-2/4 md:pt-2 pt-0 lg:pt-4 justify-center md:justify-normal">
+            <div className="text-white font-semibold text-sm md:w-1/4 w-full mx-auto hidden md:block ">
+              <Link to={`/browse`}>Home</Link>
+            </div>
+            <div className="text-white font-semibold  md:w-1/4 w-full text-sm  mx-auto hidden md:block">
+              <Link to={`/browse/watchList`}>My List</Link>
+            </div>
+            {/* <div className="text-white font-semibold  md:w-1/4 w-full text-sm  mx-auto hidden md:block">
+              <Link to={`/browse/watchList`}>Tv Shows</Link>
+            </div>
+            <div className="text-white font-semibold  md:w-1/4 w-full text-sm  mx-auto hidden md:block">
+              <Link to={`/browse/watchList`}>Trending</Link>
+            </div> */}
+
+            <select className="rounded-md bg-black text-white border border-white justify-self-center h-3/4  text-xs md:hidden block">
+              <option>
+                <Link to={`/browse`}>Home</Link>
+              </option>
+              <option>
+                {" "}
+                <Link to={`/browse/watchList`}>My List</Link>
+              </option>
+            </select>
           </div>
-          {/* {gpt && (
+          <div className="flex justify-around flex-nowrap w-2/4 lg:pt-3 ">
+            {/** w-auto */}
+            <div className="w-full mx-2 ">
+              <img
+                src={user.photoURL}
+                alt="user-icon"
+                className=" rounded-full mx-auto"
+              />{" "}
+              {/** lg:w-full */}
+            </div>
+            {/* {gpt && (
             // <select
             //   className="rounded-md h-3/4 p-2"
             //   onChange={handleLanguageChange}
@@ -96,19 +121,20 @@ const Header = () => {
             //   ))}
             // </select>
           )} */}
-          <button
-            className="bg-black text-white border border-white rounded-md h-8 lg:h-3/4 text-center mx-2 w-full text-xs lg:text-sm"
-            onClick={handleClick}
-          >
-            {gpt ? lang[languageKey].home : lang[languageKey].gpt}
-          </button>
+            <button
+              className="bg-black text-white border border-white rounded-md h-8 lg:h-3/4 text-center mx-2 w-full text-xs lg:text-sm"
+              onClick={handleClick}
+            >
+              {gpt ? lang[languageKey].home : lang[languageKey].gpt}
+            </button>
 
-          <button
-            className="text-black border-black  bg-red-700 rounded-md h-8 lg:h-3/4 text-center mx-2 w-full text-xs lg:text-sm"
-            onClick={handleSignOut}
-          >
-            {lang[languageKey].signOut}
-          </button>
+            <button
+              className="text-black border-black  bg-red-700 rounded-md h-8 lg:h-3/4 text-center mx-2 w-full text-xs lg:text-sm"
+              onClick={handleSignOut}
+            >
+              {lang[languageKey].signOut}
+            </button>
+          </div>
         </div>
       ) : (
         <select

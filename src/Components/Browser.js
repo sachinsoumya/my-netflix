@@ -9,6 +9,7 @@ import useUpComingMovies from "../customHook/useUpComingMovies";
 import GptSearch from "./GptSearch";
 import { useSelector } from "react-redux";
 import MovieDetails from "./MovieDetails";
+import { Outlet } from "react-router-dom";
 
 const Browser = () => {
   useNowPlayingMovies();
@@ -21,18 +22,9 @@ const Browser = () => {
 
   return (
     <div>
-     {movieDetails && <MovieDetails />}
+      {movieDetails && <MovieDetails />}
       <Header />
-
-      {gpt ? (
-        <GptSearch />
-      ) : (
-        <>
-          <MainContainer />
-          <SecondaryContainer />
-        </>
-      )}
-
+      {gpt ? <GptSearch /> : <Outlet />}
       {/* 
            MainContainer
              - VideoBackground
