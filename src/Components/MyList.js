@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { database } from "../Utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { addMyMovieList } from "../Utils/movieSlice";
+
 // import { IMG_CDN } from "../Utils/constant";
 import MovieCard from "./MovieCard";
 import { useNavigate } from "react-router-dom";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const MyList = () => {
   useEffect(() => {
@@ -27,7 +29,7 @@ const MyList = () => {
       console.log(querySnapshot);
 
       const data = querySnapshot.docs.map((doc) => {
-        return doc.data();
+        return { ...doc.data(), id: doc.id };
       });
 
       console.log(data);
@@ -35,6 +37,13 @@ const MyList = () => {
     } catch (err) {
       navigate("/error", { state: err });
     }
+  };
+
+  const deleteListItem = async (id) => {
+    await deleteDoc(doc(database, `${user.email} collection`, id));
+
+    getDoc();
+    // dispatch(addMyMovieList(storedData));
   };
   // const querySnapshot = await getDocs(collectionRef);
   // console.log(querySnapshot);
@@ -47,13 +56,22 @@ const MyList = () => {
   return (
     myMovieLists && (
       <div className="pt-36 bg-black md:h-screen  h-full">
-        <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-1 gap-4 justify-items-center">
+        <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-1 gap-4 justify-items-center relative">
           {myMovieLists.map((item) => (
-            <MovieCard
-              posterPath={item.path}
-              movieId={item.movieId}
-              key={item.id}
-            />
+            <div className="relative">
+              <MovieCard
+                posterPath={item.path}
+                movieId={item.movieId}
+                key={item.id}
+              />
+              <div
+                className="absolute -top-2 right-0 cursor-pointer"
+                onClick={() => deleteListItem(item.id)}
+              >
+                {" "}
+                <XMarkIcon className="size-7 text-white border border-white bg-black rounded-full " />
+              </div>
+            </div>
           ))}
         </div>
       </div>

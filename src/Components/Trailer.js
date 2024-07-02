@@ -1,9 +1,43 @@
 import React from "react";
-import useMovieTrailer from "../customHook/useMovieTrailer";
+
 import { useSelector } from "react-redux";
 
+import useModalMovieTrailer from "../customHook/useModalMovieTrailer";
+
 const Trailer = ({ movieId }) => {
-  useMovieTrailer(movieId );
+  useModalMovieTrailer(movieId);
+  // useMovieTrailer(movieId);
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   getModalMovieTrailer();
+  // }, []);
+
+  // const getModalMovieTrailer = async () => {
+  //   try {
+  //     const data = await fetch(
+  //       "https://api.themoviedb.org/3/movie/" +
+  //         movieId +
+  //         "/videos?language=en-US",
+  //       API_OPTIONS
+  //     );
+  //     const json = await data.json();
+  //     console.log(json);
+
+  //     const filteredData = json.results.filter(
+  //       (item) => item.type === "Trailer"
+  //     );
+
+  //     const trailer =
+  //       filteredData.length !== 0 ? filteredData[0] : json.results[0];
+
+  //     console.log(trailer);
+  //     dispatch(addModalTrailerVideo(trailer));
+  //   } catch (error) {
+  //     navigate("/error", { state: error });
+  //   }
+  // };
 
   const movieTrailerData = useSelector(
     (store) => store.movies.modalTrailerVideo
@@ -24,7 +58,9 @@ const Trailer = ({ movieId }) => {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
-       <button className="border border-black bg-white text-black text-lg font-semibold absolute  top-2/3 left-6 rounded-md p-2 w-1/6">Play</button>
+      <button className="border border-black bg-white text-black text-lg font-semibold absolute  top-2/3 left-6 rounded-md p-2 w-1/6">
+        Play
+      </button>
     </div>
   );
 };

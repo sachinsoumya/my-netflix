@@ -1,21 +1,18 @@
-import { useEffect } from "react";
 import { API_OPTIONS } from "../Utils/constant";
-
-import { useDispatch, useSelector } from "react-redux";
-import { addTrailerVideo } from "../Utils/movieSlice";
-
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addModalTrailerVideo } from "../Utils/movieSlice";
 
-const useMovieTrailer = (movieId) => {
+const useModalMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    getMovieTrailer();
+    getModalMovieTrailer();
   }, []);
 
-  //Fetch the trailer
-  const getMovieTrailer = async () => {
+  const getModalMovieTrailer = async () => {
     try {
       const data = await fetch(
         "https://api.themoviedb.org/3/movie/" +
@@ -34,11 +31,11 @@ const useMovieTrailer = (movieId) => {
         filteredData.length !== 0 ? filteredData[0] : json.results[0];
 
       console.log(trailer);
-      dispatch(addTrailerVideo(trailer));
+      dispatch(addModalTrailerVideo(trailer));
     } catch (error) {
       navigate("/error", { state: error });
     }
   };
 };
 
-export default useMovieTrailer;
+export default useModalMovieTrailer;

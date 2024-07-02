@@ -77,7 +77,7 @@ const Details = ({
   return (
     <div className="grid md:grid-cols-3 gap-4 p-4 grid-cols-1 font-medium">
       <div className="col-span-2">
-        <div className="flex justify-between md:w-2/4 w-full text-gray-500">
+        <div className="flex justify-between lg:w-2/4 md:w-3/4 w-full text-gray-500">
           <div>{release_date}</div>
           <div>
             {Math.floor(runtime / 60)}h{" "}
@@ -86,10 +86,10 @@ const Details = ({
           <div className="border border-white p-1">
             {adult ? "U/A 18+" : "U/A 16+"}
           </div>
-          <div>
+          <div className=" relative">
             <button
               onClick={handleSubmit}
-              className="text-white cursor-pointer border border-white rounded-full p-1 bg-transparent  hover:bg-neutral-700"
+              className="text-white cursor-pointer border border-white rounded-full p-1 bg-transparent  hover:bg-neutral-700 group "
             >
               {myMovieList ? (
                 myMovieList.some((item) => item.movieId === id) ? (
@@ -101,6 +101,19 @@ const Details = ({
                 <PlusIcon className="size-7" />
               )}
               {/* <PlusIcon className="size-7" /> */}
+
+              <div class="absolute -top-14 -left-full scale-0 w-28 rounded bg-white p-2 text-xs text-black group-hover:scale-100">
+               Add to my list
+              </div>
+
+              {/* <div
+                id="tooltip-hover"
+                role="tooltip"
+                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+              >
+                Tooltip content
+                <div class="tooltip-arrow" data-popper-arrow></div>
+              </div> */}
             </button>
           </div>
           {/* <div>{ original_title}</div> */}
