@@ -3,7 +3,7 @@ import { API_OPTIONS } from "../Utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovieDetails } from "../Utils/movieSlice";
 import { useNavigate } from "react-router-dom";
-import { PlayIcon } from "@heroicons/react/24/solid";
+// import { PlayIcon } from "@heroicons/react/24/solid";
 
 const VideoTitle = ({ title, overview, movieId }) => {
   const ref = useRef(false);
@@ -45,7 +45,7 @@ const VideoTitle = ({ title, overview, movieId }) => {
   };
 
   if (ref.current && movieDetails && movieDetails.original_title === title) {
-    navigate("/watch");
+    navigate(`/watch?movieId=${movieId}`);
     dispatch(addMovieDetails(null));
   }
   return (
@@ -53,7 +53,7 @@ const VideoTitle = ({ title, overview, movieId }) => {
       <div className="lg:w-1/3 md:w-2/4  w-3/4 self-end md:self-center">
         <div className="font-bold  lg:text-xl md:text-lg text-sm">{title}</div>
         <div className="hidden md:inline-block  md:text-lg text-xs font-normal pt-5 text-justify">
-          {overview.length > 350 ? overview.slice(0,300)+"...": overview}
+          {overview.length > 350 ? overview.slice(0, 300) + "..." : overview}
         </div>
         <div className="flex pt-3">
           <button

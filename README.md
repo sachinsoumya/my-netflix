@@ -48,7 +48,7 @@
 51.Stored recommended movie data in recommendedMovies state in movieSlice in redux store.
 52.Subscribe that store by useSelector hook and update the UI of Recommend component.
 53.Also created a separate component like About to have complete movie details below Recommend component and the data is coming to this component as props.
-54.Created FullTrailer component to view the full trailer in a separate route like /watch when we click on on the play button on poster in MovieDetails component and play button on VideoTitle component.
+54.Created FullTrailer component to view the full trailer in a separate route like /watch?movieId=id when we click on on the play button on poster in MovieDetails component and play button on VideoTitle component.
 55.Did router configuration for FullTrailer component.
 56.Used ref variable using useRef hook for conditional rendering of MovieDetails component and routing to FullTrailer component.
 57.Did error handling and navigate to error route if any error comes.
@@ -56,22 +56,28 @@
 59.Expand and collapse the recommended cards lists by clicking on arrow button .
 60.Added the functionality to add movies to myList and remove from myList.
 61.Used firebase database (FireStore) to create the collection of each user and add the documents to that collection and its document contains two fields like movie id and poster path.
-
-
+62.Fixed bugs on Trailer component by creating a separate hook for modal trailer video like useModalMovieTrailer rather using the same hook useMovieTrailer . Previously we are using the same hook useMovieTrailer , then we faced bug like correct trailer was not coming as per trailer id.
+63.Added tooltip on added to my movie list.
+64.Added feature like remove movie items from my movie list.
+65.Created separate state like recommendedTrailerVideo inside the movie slice.
+66.Updated the recommendedTrailerVideo state by data coming from the api calling for videos of a particular movie(id) clicking on the play button of RecommendCard component also navigate the page to /watch?movieId=id using useNavigate hook.
+67.Added play movie trailer feature in recommended card component.And the trailer will be playing in /watch?movieId=id route path where id is the id of the movie and it comes dynamically.
+68.Then we subscribe to the recommendedTrailerVideo state inside the FullTrailer component and did conditional rendering inside the FullTrailer component.
 
 # Features -
 
 - login/Sign up page
+  - Header
   - log in/Sign up form
   - after logged in it will redirect to browse screen
 - Browse page (only comes after authentication )
   - Header
-    -Main Movie
-  - Trailer in background
-  - Title and description
+  -Main Movie
+   - Trailer in background
+   - Title and description
   - MovieSuggestion
     - MovieLists
-        - Details of movie along with its trailer ,descriptions like overview , genres and  recommended movie lists 
+      - Details of movie along with its trailer ,descriptions like overview , genres and recommended movie lists
 - NetFlix gpt
   -Search bar
   -Movie Suggestion

@@ -18,6 +18,7 @@ const AboutMovie = ({
   title: originalTitle,
   tagline,
   status,
+  id
 }) => {
   const languageKey = useSelector((store) => store.config.lang);
 
@@ -34,7 +35,7 @@ const AboutMovie = ({
           alt="moviePoster"
           className="w-full object-cover rounded-lg"
         />
-        <Link to={"/watch"}>
+        <Link to={`/watch?movieId=${id}`}>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl hidden group-hover:block cursor-pointer">
             <PlayCircleIcon className="size-10 text-white  " />
           </div>

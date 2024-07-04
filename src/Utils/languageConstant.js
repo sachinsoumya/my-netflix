@@ -20,6 +20,7 @@ const lang = {
     alreadyRegis: "Already Registered",
     moreLikeThis: "More Like This",
     trailersAndMore: "Trailers and more",
+    myList: "My List",
   },
   hindi: {
     search: "खोज",
@@ -43,6 +44,7 @@ const lang = {
     alreadyRegis: "पहले साइन अप किया",
     moreLikeThis: "समान फिल्में",
     trailersAndMore: "ट्रेलर और बहुत कुछ",
+    myList: "मेरी सूची",
   },
   spanish: {
     search: "Buscar",
@@ -65,6 +67,7 @@ const lang = {
     alreadyRegis: "Ya estás registrado",
     moreLikeThis: "más como esto",
     trailersAndMore: "Remolques y más",
+    myList: "mi lista",
   },
 };
 

@@ -43,7 +43,12 @@ const Trailer = ({ movieId }) => {
     (store) => store.movies.modalTrailerVideo
   );
 
-  if (!movieTrailerData) return;
+  if (!movieTrailerData)
+    return (
+      <div className="w-full h-1/4 flex justify-center items-center">
+        <p className="text-center text-lg ">No trailer available</p>
+      </div>
+    );
   return (
     <div className="w-full relative">
       <iframe

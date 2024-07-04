@@ -91,11 +91,11 @@ const Header = () => {
 
             <select className="rounded-md bg-black text-white border border-white justify-self-center h-3/4  text-xs md:hidden block">
               <option>
-                <Link to={`/browse`}>Home</Link>
+                <Link to={`/browse`}>{lang[languageKey].home} </Link>
               </option>
               <option>
                 {" "}
-                <Link to={`/browse/watchList`}>My List</Link>
+                <Link to={`/browse/watchList`}>{lang[languageKey].myList}</Link>
               </option>
             </select>
           </div>

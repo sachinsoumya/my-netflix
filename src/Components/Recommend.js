@@ -39,6 +39,7 @@ const Recommend = ({ movieId }) => {
                 releaseDate={item.release_date}
                 popularity={item.popularity}
                 title={item.title}
+                id={item.id}
               />
             ))
           ) : (
@@ -52,6 +53,7 @@ const Recommend = ({ movieId }) => {
                   releaseDate={item.release_date}
                   popularity={item.popularity}
                   title={item.title}
+                  id={item.id}
                 />
               ))
           )
