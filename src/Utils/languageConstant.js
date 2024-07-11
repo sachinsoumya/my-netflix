@@ -32,7 +32,6 @@ const lang = {
     now: "अभी",
     gpt: "जीपीटी",
     home: "होम पेज",
-
     emailPlaceholder: "ईमेल पता",
     namePlaceholder: "पूरा नाम",
     passwordPlaceholder: "पासवर्ड",

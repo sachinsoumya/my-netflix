@@ -5,9 +5,7 @@ import Error from "./Error";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import { useSelector } from "react-redux";
 
-import Trailer from "./Trailer";
 import FullTrailer from "./FullTrailer";
 import MyList from "./MyList";
 

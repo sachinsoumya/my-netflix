@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import useMovieRecommend from "../customHook/useMovieRecommend";
 import { useSelector } from "react-redux";
-import MovieCard from "./MovieCard";
 import RecommendCard from "./RecommendCard";
 import lang from "../Utils/languageConstant";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 
 const Recommend = ({ movieId }) => {
   const [expand, setExpand] = useState(false);
-  console.log(movieId);
+  // console.log(movieId);
   useMovieRecommend(movieId);
   const recommendedMovies = useSelector(
     (store) => store.movies.recommendedMovies
@@ -23,12 +22,6 @@ const Recommend = ({ movieId }) => {
         {lang[languageKey].moreLikeThis}
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 w-full h-full py-3 ">
-        {/* <MovieCard
-        posterPath={recommendedMovies[0].poster_path}
-        movieId={recommendedMovies[0].id} 
-      
-      /> */}
-
         {recommendedMovies.length ? (
           expand ? (
             recommendedMovies.map((item, index) => (
@@ -40,6 +33,7 @@ const Recommend = ({ movieId }) => {
                 popularity={item.popularity}
                 title={item.title}
                 id={item.id}
+                key={item.id}
               />
             ))
           ) : (
@@ -54,6 +48,7 @@ const Recommend = ({ movieId }) => {
                   popularity={item.popularity}
                   title={item.title}
                   id={item.id}
+                  key={item.id}
                 />
               ))
           )

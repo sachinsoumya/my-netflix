@@ -40,8 +40,8 @@ const Login = () => {
 
     // console.log(email.current.value);
     // console.log(password.current.value);
-    console.log(name);
-    console.log(message);
+    // console.log(name);
+    // console.log(message);
 
     setErrorMessage(message);
     if (message) return;
@@ -55,7 +55,7 @@ const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // Signed up
+          //Signed up
 
           const user = userCredential.user;
           updateProfile(user, {
@@ -73,17 +73,13 @@ const Login = () => {
                 })
               );
               navigate("/browse");
-              // Profile updated!
-              // ...
+              //Profile updated!
             })
             .catch((error) => {
               // An error occurred
               setErrorMessage(error.message);
-              // ...
             });
-          console.log(user);
-
-          // ...
+          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;

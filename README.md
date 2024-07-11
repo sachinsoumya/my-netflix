@@ -63,21 +63,35 @@
 66.Updated the recommendedTrailerVideo state by data coming from the api calling for videos of a particular movie(id) clicking on the play button of RecommendCard component also navigate the page to /watch?movieId=id using useNavigate hook.
 67.Added play movie trailer feature in recommended card component.And the trailer will be playing in /watch?movieId=id route path where id is the id of the movie and it comes dynamically.
 68.Then we subscribe to the recommendedTrailerVideo state inside the FullTrailer component and did conditional rendering inside the FullTrailer component.
+69.Resolved small bug from dropdown language settings by putting value attribute to select tag.
+70.Resolved routing bug by rendering the Header component conditionally in Error component. It prevents user state to become null in user slice in redux store , which previously causes unwanted behavior of app.
+71.Added some style to the Trailer component like background gradient.
+72.Also added conditional element in AboutMovie Component fot 16+ movie and 18+ movie.
+73.Conditionally applied tailwind css class (invisible) to the nav-items like "My List" and "home" as per gpt value to the to the header component in home page and gpt page.
 
 # Features -
 
 - login/Sign up page
-  - Header
-  - log in/Sign up form
-  - after logged in it will redirect to browse screen
+- Header
+- log in/Sign up form
+- after logged in it will redirect to browse screen
 - Browse page (only comes after authentication )
+
   - Header
-  -Main Movie
-   - Trailer in background
-   - Title and description
-  - MovieSuggestion
+    -Main Page
+    -Main Container
+    -VideoTitle (Movie Title and buttons)
+    -VideoBack (Trailer playing in back ground)
+    -Secondary container
+    -MovieList
+
+    - MovieCard
+
+    - MovieSuggestion
     - MovieLists
       - Details of movie along with its trailer ,descriptions like overview , genres and recommended movie lists
-- NetFlix gpt
-  -Search bar
-  -Movie Suggestion
+
+- GPT page
+  -GptSearch
+  -GptSearchBar
+  -GptMovieSuggestions

@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 const MovieList = ({ title, movies }) => {
-  console.log(movies);
+  // console.log(movies);
   return (
     <div>
       <div className="font-semibold text-xl py-3 px-2">{title}</div>
@@ -32,12 +32,11 @@ const MovieList = ({ title, movies }) => {
           className="mySwiper"
         >
           {movies?.map((movie, index) => (
-            <SwiperSlide className="transition-all hover:scale-110">
-              <MovieCard
-                posterPath={movie.poster_path}
-                movieId={movie.id}
-                key={movie.id}
-              />
+            <SwiperSlide
+              className="transition-all hover:scale-110"
+              key={movie.id}
+            >
+              <MovieCard posterPath={movie.poster_path} movieId={movie.id} />
             </SwiperSlide>
           ))}
         </Swiper>

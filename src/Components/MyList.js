@@ -8,10 +8,11 @@ import { addMyMovieList } from "../Utils/movieSlice";
 import MovieCard from "./MovieCard";
 import { useNavigate } from "react-router-dom";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import Shimmer from "./Shimmer";
 
 const MyList = () => {
   useEffect(() => {
-    getDoc();
+    user && getDoc();
   }, []);
 
   const dispatch = useDispatch();
@@ -19,20 +20,20 @@ const MyList = () => {
   const myMovieLists = useSelector((store) => store.movies.myMovieList);
 
   const user = useSelector((store) => store.user);
-  console.log(user);
+  // console.log(user);
   const collectionRef =
     user && collection(database, `${user.email} collection`);
 
   const getDoc = async () => {
     try {
       const querySnapshot = await getDocs(collectionRef);
-      console.log(querySnapshot);
+      // console.log(querySnapshot);
 
       const data = querySnapshot.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
       });
 
-      console.log(data);
+      // console.log(data);
       dispatch(addMyMovieList(data));
     } catch (err) {
       navigate("/error", { state: err });
@@ -55,10 +56,10 @@ const MyList = () => {
   // console.log(data);
   return (
     myMovieLists && (
-      <div className="pt-36 bg-black md:h-screen  h-full">
+      <div className="pt-36 bg-black  h-screen overflow-y-scroll">
         <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-1 gap-4 justify-items-center relative">
           {myMovieLists.map((item) => (
-            <div className="relative">
+            <div className="relative" key={item.id}>
               <MovieCard
                 posterPath={item.path}
                 movieId={item.movieId}

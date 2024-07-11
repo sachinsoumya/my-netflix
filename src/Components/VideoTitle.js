@@ -20,7 +20,7 @@ const VideoTitle = ({ title, overview, movieId }) => {
       );
       const json = await data.json();
 
-      console.log(json);
+      // console.log(json);
 
       ref.current = !ref.current;
       dispatch(addMovieDetails(json));
@@ -36,7 +36,7 @@ const VideoTitle = ({ title, overview, movieId }) => {
       );
       const json = await data.json();
 
-      console.log(json);
+      // console.log(json);
 
       dispatch(addMovieDetails(json));
     } catch (err) {
@@ -45,8 +45,8 @@ const VideoTitle = ({ title, overview, movieId }) => {
   };
 
   if (ref.current && movieDetails && movieDetails.original_title === title) {
-    navigate(`/watch?movieId=${movieId}`);
     dispatch(addMovieDetails(null));
+    navigate(`/watch?movieId=${movieId}`);
   }
   return (
     <div className=" w-full aspect-video px-7 absolute  text-white bg-gradient-to-r from-black flex ">

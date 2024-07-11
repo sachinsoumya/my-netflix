@@ -18,7 +18,7 @@ const usePopularMovies = () => {
         API_OPTIONS
       );
       const json = await data.json();
-      console.log(json);
+      // console.log(json);
       dispatch(addPopularMovies(json.results));
     } catch (e) {
       navigate("/error", { state: e });

@@ -3,7 +3,6 @@ import { auth } from "../Utils/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
-
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
@@ -47,7 +46,7 @@ const Header = () => {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [dispatch, navigate]);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -65,40 +64,45 @@ const Header = () => {
   };
 
   const handleLanguageChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     dispatch(languageSetting(e.target.value));
+  };
+
+  const handleSelect = (e) => {
+    navigate(e.target.value);
   };
 
   return (
     <div className="fixed bg-gradient-to-b from-black px-2 py-2 z-40 w-full flex justify-between h-1/12 lg:h-auto ">
-      <img src={LOGO} alt="logo" className="w-24 lg:w-40" />
+      <Link to={`/browse`}>
+        <img src={LOGO} alt="logo" className="w-24 lg:w-40" />
+      </Link>
 
       {user ? (
         <div className="flex justify-between  flex-nowrap w-full">
-          <div className="flex flex-nowrap w-2/4 md:pt-2 pt-0 lg:pt-4 justify-center md:justify-normal">
+          <div
+            className={`flex flex-nowrap w-2/4 md:pt-2 pt-0 lg:pt-4 justify-center md:justify-normal ${
+              gpt && `invisible`
+            }`}
+          >
             <div className="text-white font-semibold text-sm md:w-1/4 w-full mx-auto hidden md:block ">
-              <Link to={`/browse`}>Home</Link>
+              <Link to={`/browse`}>{lang[languageKey].home} </Link>
             </div>
             <div className="text-white font-semibold  md:w-1/4 w-full text-sm  mx-auto hidden md:block">
-              <Link to={`/browse/watchList`}>My List</Link>
+              <Link to={`/browse/watchList`}>{lang[languageKey].myList}</Link>
             </div>
-            {/* <div className="text-white font-semibold  md:w-1/4 w-full text-sm  mx-auto hidden md:block">
-              <Link to={`/browse/watchList`}>Tv Shows</Link>
-            </div>
-            <div className="text-white font-semibold  md:w-1/4 w-full text-sm  mx-auto hidden md:block">
-              <Link to={`/browse/watchList`}>Trending</Link>
-            </div> */}
 
-            <select className="rounded-md bg-black text-white border border-white justify-self-center h-3/4  text-xs md:hidden block">
-              <option>
-                <Link to={`/browse`}>{lang[languageKey].home} </Link>
-              </option>
-              <option>
-                {" "}
-                <Link to={`/browse/watchList`}>{lang[languageKey].myList}</Link>
+            <select
+              className="rounded-md bg-black text-white border border-white justify-self-center h-3/4  text-xs md:hidden block"
+              onChange={handleSelect}
+            >
+              <option value="/browse">{lang[languageKey].home}</option>
+              <option value="/browse/watchList">
+                {lang[languageKey].myList}
               </option>
             </select>
           </div>
+
           <div className="flex justify-around flex-nowrap w-2/4 lg:pt-3 ">
             {/** w-auto */}
             <div className="w-full mx-2 ">
@@ -107,20 +111,8 @@ const Header = () => {
                 alt="user-icon"
                 className=" rounded-full mx-auto"
               />{" "}
-              {/** lg:w-full */}
             </div>
-            {/* {gpt && (
-            // <select
-            //   className="rounded-md h-3/4 p-2"
-            //   onChange={handleLanguageChange}
-            // >
-            //   {SUPPORTED_LANGUAGES_LIST.map((language) => (
-            //     <option key={language.name} value={language.identifier}>
-            //       {language.name}
-            //     </option>
-            //   ))}
-            // </select>
-          )} */}
+
             <button
               className="bg-black text-white border border-white rounded-md h-8 lg:h-3/4 text-center mx-2 w-full text-xs lg:text-sm"
               onClick={handleClick}
@@ -140,6 +132,7 @@ const Header = () => {
         <select
           className="rounded-md h-3/4 p-2"
           onChange={handleLanguageChange}
+          value={languageKey}
         >
           {SUPPORTED_LANGUAGES_LIST?.map((language) => (
             <option key={language.name} value={language.identifier}>

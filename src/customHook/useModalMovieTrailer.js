@@ -21,7 +21,7 @@ const useModalMovieTrailer = (movieId) => {
         API_OPTIONS
       );
       const json = await data.json();
-      console.log(json);
+      // console.log(json);
 
       const filteredData = json.results.filter(
         (item) => item.type === "Trailer"
@@ -30,7 +30,7 @@ const useModalMovieTrailer = (movieId) => {
       const trailer =
         filteredData.length !== 0 ? filteredData[0] : json.results[0];
 
-      console.log(trailer);
+      // console.log(trailer);
       dispatch(addModalTrailerVideo(trailer));
     } catch (error) {
       navigate("/error", { state: error });

@@ -1,8 +1,6 @@
 import React from "react";
 import Header from "./Header";
 import useNowPlayingMovies from "../customHook/useNowPlayingMovies";
-import MainContainer from "./MainContainer";
-import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../customHook/usePopularMovies";
 import useTopRatedMovies from "../customHook/useTopRatedMovies";
 import useUpComingMovies from "../customHook/useUpComingMovies";
@@ -25,15 +23,6 @@ const Browser = () => {
       {movieDetails && <MovieDetails />}
       <Header />
       {gpt ? <GptSearch /> : <Outlet />}
-      {/* 
-           MainContainer
-             - VideoBackground
-             - Title
-           Secondary 
-            -  MoviesList *n
-               - Cards 
-        
-        */}
     </div>
   );
 };

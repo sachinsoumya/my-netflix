@@ -15,12 +15,12 @@ const AddtoMovieListBtn = ({ id, poster_path }) => {
   const user = useSelector((store) => store.user);
   const myMovieList = useSelector((store) => store.movies.myMovieList);
   const dispatch = useDispatch();
-  console.log(user);
+  // console.log(user);
   const collectionRef = collection(database, `${user.email} collection`);
 
   const getData = async () => {
     const querySnapshot = await getDocs(collectionRef);
-    console.log(querySnapshot);
+    // console.log(querySnapshot);
 
     const data = querySnapshot.docs.map((doc) => {
       return { ...doc.data(), id: doc.id };
@@ -32,11 +32,11 @@ const AddtoMovieListBtn = ({ id, poster_path }) => {
   const handleSubmit = async () => {
     const data = await getData();
 
-    console.log(data);
+    // console.log(data);
 
     const flag = data.some((obj) => obj.movieId === id);
 
-    console.log(flag);
+    // console.log(flag);
     if (!flag) {
       try {
         const docRef = await addDoc(collectionRef, {
@@ -69,27 +69,28 @@ const AddtoMovieListBtn = ({ id, poster_path }) => {
       >
         {myMovieList ? (
           myMovieList.some((item) => item.movieId === id) ? (
-            <CheckIcon className="size-7" />
+            <>
+              <CheckIcon className="size-7" />
+              <div className="absolute -top-14 -left-full z-50  scale-0 w-20 rounded bg-white p-1 text-xs text-black group-hover:scale-100">
+                Remove from My List
+              </div>
+            </>
           ) : (
-            <PlusIcon className="size-7" />
+            <>
+              <PlusIcon className="size-7" />
+              <div className="absolute -top-14  -left-full z-50 scale-0 w-20 rounded bg-white p-1 text-xs text-black group-hover:scale-100">
+                Add to My List
+              </div>
+            </>
           )
         ) : (
-          <PlusIcon className="size-7" />
+          <>
+            <PlusIcon className="size-7" />
+            <div className="absolute -top-14  -left-full z-50 scale-0 w-20 rounded bg-white p-2 text-xs text-black group-hover:scale-100">
+              Add to my list
+            </div>
+          </>
         )}
-        {/* <PlusIcon className="size-7" /> */}
-
-        <div class="absolute -top-14 -left-full scale-0 w-28 rounded bg-white p-2 text-xs text-black group-hover:scale-100">
-          Add to my list
-        </div>
-
-        {/* <div
-                id="tooltip-hover"
-                role="tooltip"
-                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-              >
-                Tooltip content
-                <div class="tooltip-arrow" data-popper-arrow></div>
-              </div> */}
       </button>
     </div>
   );

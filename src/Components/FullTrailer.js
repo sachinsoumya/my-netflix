@@ -15,17 +15,8 @@ const FullTrailer = () => {
     window.onpopstate = () => {
       navigate("/browse");
       dispatch(addRecommendedMoviesTrailer(null));
-
-      // Redirect to the home page (you can adjust the route)
     };
   }, []);
-
-  // const { movieId } = useParams();
-  // const [searchQuery] = useSearchParams();
-
-  // const searchQueryValue = searchQuery.get("movieId");
-
-  // useRecommendedMovieTrailer(searchQueryValue);
 
   const movieTrailerData = useSelector(
     (store) => store.movies.modalTrailerVideo

@@ -1,14 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addMovieDetails } from "../Utils/movieSlice";
-
 import Trailer from "./Trailer";
 import Details from "./Details";
 import Recommend from "./Recommend";
 import AboutMovie from "./AboutMovie";
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
-
-// import { createBrowserRouter } from "react-router-dom";
+import Shimmer from "./Shimmer";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -31,6 +29,7 @@ const MovieDetails = () => {
           <Details {...movieDetails} />
           <Recommend movieId={movieDetails.id} />
           <AboutMovie {...movieDetails} />
+          <Shimmer />
         </div>
       </div>
     )

@@ -11,7 +11,6 @@ const GptSearchBar = () => {
   const languageKey = useSelector((store) => store.config.lang);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //Search movie in TMDB api
 
   const searchInTmdb = async (movieName) => {
     try {
@@ -32,7 +31,7 @@ const GptSearchBar = () => {
 
   const handleGptSearch = async () => {
     try {
-      console.log(searchText.current.value);
+      // console.log(searchText.current.value);
       //* we can make an api call to gpt api and get movie results.
 
       const GPTQuery =
@@ -45,23 +44,21 @@ const GptSearchBar = () => {
         model: "gpt-3.5-turbo",
       });
 
-      console.log(GptResults.choices[0].message.content);
+      // console.log(GptResults.choices[0].message.content);
       //*"Barfi!, Jab We Met, Dilwale Dulhania Le Jayenge, 2 States, Saathiya"
 
       const gptMovies = GptResults.choices[0].message?.content.split(",");
-      console.log(gptMovies);
-
+      // console.log(gptMovies);
       //["Barfi!", "Jab We Met", "Dilwale Dulhania Le Jayenge", "2 States", "Saathiya"]
 
-      //For each movie I will search in TMDB api
-
+      //* For each movie I will search in TMDB api
       const dataPromiseArray = gptMovies.map((movie, index) =>
         searchInTmdb(movie)
       );
 
       //[Promise , Promise , Promise ]
       const tmdbResults = await Promise.all(dataPromiseArray);
-      console.log(tmdbResults);
+      // console.log(tmdbResults);
       dispatch(
         addGptMovieResult({
           moviesName: gptMovies,

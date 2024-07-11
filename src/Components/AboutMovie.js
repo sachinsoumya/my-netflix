@@ -18,7 +18,7 @@ const AboutMovie = ({
   title: originalTitle,
   tagline,
   status,
-  id
+  id,
 }) => {
   const languageKey = useSelector((store) => store.config.lang);
 
@@ -89,10 +89,11 @@ const AboutMovie = ({
             <span>{status}</span>
           </div>
           <div>
-            <span className="text-gray-500">Adult : </span>
+            <span className="text-gray-500">Maturity rating : </span>
             {adult ? (
               <span>
-                <span className="border border-white px-1">U/A 18+</span>{" "}
+                <span className="border border-white px-1">A</span> language,
+                nudity, sex, sexual violence, substances, tobacco use, violence
               </span>
             ) : (
               <span>

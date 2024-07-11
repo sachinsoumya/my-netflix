@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-// import MovieList from "./MovieList";
 import MovieCard from "./MovieCard";
 
 const GptMovieSuggestions = () => {
@@ -8,7 +7,7 @@ const GptMovieSuggestions = () => {
 
   const flatGptMovieList = gptMoviesList && gptMoviesList.flat();
 
-  console.log(flatGptMovieList);
+  // console.log(flatGptMovieList);
 
   if (!gptMovies) return null;
 

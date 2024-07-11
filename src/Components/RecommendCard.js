@@ -1,7 +1,6 @@
 import React from "react";
 import { IMG_CDN } from "../Utils/constant";
 import AddtoMovieListBtn from "./AddtoMovieListBtn";
-// import { Link } from "react-router-dom";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
 import { API_OPTIONS } from "../Utils/constant";
 import { addRecommendedMoviesTrailer } from "../Utils/movieSlice";
@@ -27,7 +26,7 @@ const RecommendCard = ({
         API_OPTIONS
       );
       const json = await data.json();
-      console.log(json);
+      // console.log(json);
 
       const filteredData = json.results.filter(
         (item) => item.type === "Trailer"
@@ -36,7 +35,7 @@ const RecommendCard = ({
       const trailer =
         filteredData.length !== 0 ? filteredData[0] : json.results[0];
 
-      console.log(trailer);
+      // console.log(trailer);
       dispatch(addRecommendedMoviesTrailer(trailer));
       navigate(`/watch?movieId=${id}`);
     } catch (error) {
@@ -51,14 +50,13 @@ const RecommendCard = ({
           alt="recommend card"
           className="w-full h-full object-cover object-bottom rounded-lg"
         />
-        {/* <Link to={`/watch?movieId=${id}`}> */}
+
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl   hidden  group-hover:block cursor-pointer"
           onClick={handleClick}
         >
           <PlayCircleIcon className="size-10 text-white  " />
         </div>
-        {/* </Link> */}
       </div>
 
       <div className="absolute  top-1 right-4 text-gray-500 font-bold z-50">
@@ -80,7 +78,6 @@ const RecommendCard = ({
           <div>{releaseDate}</div>
         </div>
 
-        {/* <MovieCard posterPath={posterPath} overview={overview} /> */}
         <div className=" w-full text-justify py-3">
           {overview.length > 505 ? overview.slice(0, 505) : overview}
         </div>

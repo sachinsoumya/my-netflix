@@ -23,7 +23,7 @@ const useRecommendedMovieTrailer = (movieId) => {
         API_OPTIONS
       );
       const json = await data.json();
-      console.log(json);
+      // console.log(json);
 
       const filteredData = json.results.filter(
         (item) => item.type === "Trailer"
@@ -32,7 +32,7 @@ const useRecommendedMovieTrailer = (movieId) => {
       const trailer =
         filteredData.length !== 0 ? filteredData[0] : json.results[0];
 
-      console.log(trailer);
+      // console.log(trailer);
       dispatch(addRecommendedMoviesTrailer(trailer));
     } catch (error) {
       navigate("/error", { state: error });
