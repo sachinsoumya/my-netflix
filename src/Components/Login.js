@@ -152,6 +152,7 @@ const Login = () => {
               type="password"
               placeholder={lang[languageKey].passwordPlaceholder}
               className="  px-2 py-3 my-6 block w-full rounded-lg bg-slate-700"
+              autoComplete="on"
             />
             <p className="text-red-500 ">{errorMessage}</p>
             <button
