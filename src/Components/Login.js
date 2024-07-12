@@ -169,7 +169,7 @@ const Login = () => {
                 {lang[languageKey].newNetFlix} ?{" "}
                 <span
                   onClick={handleSignup}
-                  className="cursor-pointer text-white"
+                  className="cursor-pointer text-white hover:underline"
                 >
                   {lang[languageKey].signUp} {lang[languageKey].now}
                 </span>
@@ -179,7 +179,7 @@ const Login = () => {
                 {lang[languageKey].alreadyRegis} ?{" "}
                 <span
                   onClick={handleSignup}
-                  className="cursor-pointer text-white"
+                  className="cursor-pointer text-white hover:underline"
                 >
                   {lang[languageKey].signIn} {lang[languageKey].now}
                 </span>

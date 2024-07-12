@@ -6,7 +6,6 @@ import Recommend from "./Recommend";
 import AboutMovie from "./AboutMovie";
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import Shimmer from "./Shimmer";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -29,7 +28,6 @@ const MovieDetails = () => {
           <Details {...movieDetails} />
           <Recommend movieId={movieDetails.id} />
           <AboutMovie {...movieDetails} />
-          <Shimmer />
         </div>
       </div>
     )
