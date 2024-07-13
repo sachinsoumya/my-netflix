@@ -39,7 +39,7 @@
 42.Added a .env file for in root directory to make api secure.
 43.Added responsive features for large , medium and small screen.
 44.Added hover effect to the MovieCard Component.
-45.Used conditional rendering ofMovieDetails component for pop up modal trailer video and info .
+45.Used conditional rendering of MovieDetails component for pop up modal trailer video and info .
 46.Created a new state modalTrailerVideo in movieSlice in redux store.
 47.and update that state using addModalTrailerVideo action (dispatch action)
 48.Subscribe that store using usSelector hook provided by react-redux and update the MovieDetails component.
@@ -72,26 +72,42 @@
 # Features -
 
 - login/Sign up page
-- Header
-- log in/Sign up form
-- after logged in it will redirect to browse screen
+
+ - Header
+ - log in/Sign up form
+   - (after logged in it will redirect to browse screen)
+
 - Browse page (only comes after authentication )
 
-  - Header
-    -Main Page
-    -Main Container
+ - Header
+ - Main Page
+  -Main Container
     -VideoTitle (Movie Title and buttons)
     -VideoBack (Trailer playing in back ground)
-    -Secondary container
+  -Secondary container
     -MovieList
-
-    - MovieCard
+     - MovieCard
+       -(Details of movie along with its trailer ,descriptions like overview , genres and recommended movie lists)
 
     - MovieSuggestion
     - MovieLists
-      - Details of movie along with its trailer ,descriptions like overview , genres and recommended movie lists
+       
 
 - GPT page
+
   -GptSearch
-  -GptSearchBar
-  -GptMovieSuggestions
+   -GptSearchBar
+   -GptMovieSuggestion
+    -MovieCard
+     -(Details of movie along with its trailer ,descriptions like overview , genres and recommended movie lists)
+
+# Learnings-
+
+- How to use firebase authentication.
+- How to use firebase database.
+- How to use redux.
+- How to use custom hooks.
+- How to memoize data.
+- How to use Swiper.
+- How to integrate openai GPT API to the app and make request to it.
+- Gained more clarity on css properties like position, display , backgound-gradient etc.
