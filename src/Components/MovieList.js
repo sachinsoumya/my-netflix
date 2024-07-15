@@ -12,7 +12,7 @@ const MovieList = ({ title, movies }) => {
       <div className="flex">
         <Swiper
           slidesPerView={2}
-          spaceBetween={20}
+          spaceBetween={40}
           navigation={true}
           breakpoints={{
             640: {
@@ -27,6 +27,11 @@ const MovieList = ({ title, movies }) => {
               slidesPerView: 5,
               spaceBetween: 50,
             },
+            2000:{
+              slidesPerView: 7,
+              spaceBetween: 50,
+
+            }
           }}
           modules={[Navigation]}
           className="mySwiper"

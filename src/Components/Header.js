@@ -114,14 +114,14 @@ const Header = () => {
             </div>
 
             <button
-              className="bg-black text-white border border-white rounded-md h-8 lg:h-3/4 text-center mx-2 w-full text-xs lg:text-sm"
+              className="bg-black text-white border border-white rounded-md h-8 lg:h-3/4 text-center mx-2 w-full font-semibold text-xs lg:text-sm"
               onClick={handleClick}
             >
               {gpt ? lang[languageKey].home : lang[languageKey].gpt}
             </button>
 
             <button
-              className="text-black border-black  bg-red-700 rounded-md h-8 lg:h-3/4 text-center mx-2 w-full text-xs lg:text-sm"
+              className="text-black border-black  bg-red-700 rounded-md h-8 lg:h-3/4 text-center mx-2 w-full text-xs font-semibold lg:text-sm"
               onClick={handleSignOut}
             >
               {lang[languageKey].signOut}

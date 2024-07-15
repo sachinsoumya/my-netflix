@@ -49,7 +49,7 @@ const VideoTitle = ({ title, overview, movieId }) => {
     navigate(`/watch?movieId=${movieId}`);
   }
   return (
-    <div className=" w-full aspect-video px-7 absolute  text-white bg-gradient-to-r from-black flex ">
+    <div className=" w-full aspect-video px-7 absolute  text-white bg-gradient-to-r from-black  flex ">
       <div className="lg:w-1/3 md:w-2/4  w-3/4 self-end md:self-center">
         <div className="font-bold  lg:text-xl md:text-lg text-sm">{title}</div>
         <div className="hidden md:inline-block  md:text-lg text-xs font-normal pt-5 text-justify">

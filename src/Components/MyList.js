@@ -7,6 +7,7 @@ import { addMyMovieList } from "../Utils/movieSlice";
 import MovieCard from "./MovieCard";
 import { useNavigate } from "react-router-dom";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import Footer from "./Footer";
 
 const MyList = () => {
   useEffect(() => {
@@ -47,35 +48,38 @@ const MyList = () => {
 
   return (
     myMovieLists && (
-      <div className="pt-20 lg:pt-24 bg-[#141414]  h-screen overflow-y-scroll">
-        <div className="text-white text-2xl px-5 pb-6 font-semibold">
-          My List
-        </div>
-        {myMovieLists.length ? (
-          <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-1 gap-4 justify-items-center relative">
-            {myMovieLists.map((item) => (
-              <div className="relative" key={item.id}>
-                <MovieCard
-                  posterPath={item.path}
-                  movieId={item.movieId}
-                  key={item.id}
-                />
-                <div
-                  className="absolute -top-2 right-0 cursor-pointer"
-                  onClick={() => deleteListItem(item.id)}
-                >
-                  {" "}
-                  <XMarkIcon className="size-7 text-white border border-white bg-black rounded-full " />
+      <>
+        <div className="pt-20 lg:pt-24 bg-[#141414]  md:h-screen h-100 ">
+          <div className="text-white text-2xl px-5 pb-6 font-semibold ">
+            My List
+          </div>
+          {myMovieLists.length ? (
+            <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-1 gap-4 justify-items-center relative">
+              {myMovieLists.map((item) => (
+                <div className="relative" key={item.id}>
+                  <MovieCard
+                    posterPath={item.path}
+                    movieId={item.movieId}
+                    key={item.id}
+                  />
+                  <div
+                    className="absolute -top-2 right-0 cursor-pointer"
+                    onClick={() => deleteListItem(item.id)}
+                  >
+                    {" "}
+                    <XMarkIcon className="size-7 text-white border border-white bg-black rounded-full " />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-gray-600 text-center my-auto flex justify-center items-center w-full h-3/4 font-medium text-lg ">
-            <div>You haven't added any titles to your lists yet.</div>
-          </div>
-        )}
-      </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-gray-600 text-center my-auto flex justify-center items-center w-full h-3/4 font-medium text-lg ">
+              <div>You haven't added any titles to your lists yet.</div>
+            </div>
+          )}
+        </div>
+        <Footer />
+      </>
     )
   );
 };

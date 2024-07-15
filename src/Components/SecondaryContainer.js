@@ -11,7 +11,7 @@ const SecondaryContainer = () => {
 
   return (
     movies.nowPlayingMovies && (
-      <div className="bg-black">
+      <div className="bg-gradient-to-b from-black bg-[#141414] ">
         <div className="relative md:-mt-16 lg:-mt-52 bg-transparent  text-white ">
           <MovieList
             title={lang[languageKey].nowPlaying}

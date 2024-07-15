@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import FullTrailer from "./FullTrailer";
 import MyList from "./MyList";
+import Footer from "./Footer";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -26,6 +27,7 @@ const Body = () => {
               {" "}
               <MainContainer />
               <SecondaryContainer />
+              <Footer/>
             </>
           ),
         },

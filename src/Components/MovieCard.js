@@ -4,7 +4,6 @@ import { API_OPTIONS } from "../Utils/constant";
 import { useDispatch } from "react-redux";
 import { addMovieDetails } from "../Utils/movieSlice";
 import { useNavigate } from "react-router-dom";
-import Shimmer from "./Shimmer";
 
 const MovieCard = ({ posterPath, movieId }) => {
   const navigate = useNavigate();
@@ -30,7 +29,7 @@ const MovieCard = ({ posterPath, movieId }) => {
   return (
     posterPath && (
       <div className="w-52 px-2 relative group ">
-        <div className="bg-transparent w-full h-full text-center absolute flex justify-center items-center group-hover:bg-black group-hover:opacity-30  ">
+        <div className="bg-transparent w-48 h-full text-center absolute flex justify-center items-center group-hover:bg-black group-hover:opacity-30  ">
           <button
             className="border border-black border-transparent bg-transparent  text-transparent  text-center p-2 rounded-lg font-bold text-lg cursor-pointer group-hover:text-black group-hover:bg-white "
             onClick={handleClick}

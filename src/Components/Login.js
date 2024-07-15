@@ -111,7 +111,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen overflow-y-hidden">
       <Header />
       <div className="absolute w-full h-full">
         <img
