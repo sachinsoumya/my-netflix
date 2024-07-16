@@ -96,7 +96,9 @@ const Header = () => {
               className="rounded-md bg-black text-white border border-white justify-self-center h-3/4  text-xs md:hidden block"
               onChange={handleSelect}
             >
-              <option value="/browse">{lang[languageKey].home}</option>
+              <option value="/browse" className="bg-black ">
+                {lang[languageKey].home}
+              </option>
               <option value="/browse/watchList">
                 {lang[languageKey].myList}
               </option>
@@ -130,7 +132,7 @@ const Header = () => {
         </div>
       ) : (
         <select
-          className="rounded-md h-3/4 p-2"
+          className="rounded-md h-3/4 p-2 bg-[#141414] text-white border border-white"
           onChange={handleLanguageChange}
           value={languageKey}
         >

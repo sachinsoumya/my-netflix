@@ -1,6 +1,6 @@
-const Footer = () => {
+const Footer = ({ color = "[#141414]" }) => {
   return (
-    <div className="bg-[#141414]  text-gray-500   py-5 flex justify-center bg-gradient-to-top from-black ">
+    <div className={`bg-${color} text-gray-500 py-5 flex justify-center bg-gradient-to-top from-black`}>
       <div className="w-5/6">
         <div className="grid md:grid-cols-4 grid-cols-2  w-full gap-x-2  text-sm">
           <div className="bg-blue">
@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div> 
+        <div>
           <span className="border border-gray-500 p-2 text-sm inline-block  w-auto ">
             Service Code
           </span>
@@ -54,4 +54,10 @@ const Footer = () => {
   );
 };
 
+
+
 export default Footer;
+
+Footer.defaultProps = {
+  color: "[#141414]",
+};

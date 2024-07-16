@@ -68,6 +68,8 @@
 71.Added some style to the Trailer component like background gradient.
 72.Also added conditional element in AboutMovie Component fot 16+ movie and 18+ movie.
 73.Conditionally applied tailwind css class (invisible) to the nav-items like "My List" and "home" as per gpt value to the to the header component in home page and gpt page.
+74.Added Footer component.
+75.Fixed some styling bugs and added Footer component to Login Component.
 
 # Features -
 

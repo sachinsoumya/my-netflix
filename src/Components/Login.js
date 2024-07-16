@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
 import { BACKGROUND_IMAGE } from "../Utils/constant";
 import { USER_ICON } from "../Utils/constant";
+import Footer from "./Footer";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
@@ -111,22 +112,22 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full h-screen overflow-y-hidden">
+    <div className="w-full h-auto">
       <Header />
-      <div className="absolute w-full h-full">
+      <div className="absolute w-full h-auto">
         <img
           src={BACKGROUND_IMAGE}
           alt="Background_image"
-          className="w-full h-full object-cover"
+          className="w-full h-screen object-cover overflow-y-hidden"
         />
       </div>
 
-      <div className=" flex justify-center h-full items-center">
+      <div className=" flex justify-center h-screen overflow-y-hidden items-center bg-slate-400 ">
         <form
-          className=" relative bg-black py-8 w-3/4  flex  justify-center align-middle rounded-md bg-opacity-80 "
+          className=" relative bg-black py-8 w-3/4  flex  justify-center align-middle rounded-md bg-opacity-80  "
           onSubmit={(e) => e.preventDefault()}
         >
-          <div className="lg:w-2/4 md:w-4/6 w-5/6">
+          <div className="lg:w-2/4 md:w-4/6 w-5/6 ">
             <div className="text-3xl font-bold text-white ">
               {isSignInForm
                 ? lang[languageKey].signIn
@@ -187,9 +188,9 @@ const Login = () => {
               </div>
             )}
           </div>
-          <div></div>
         </form>
       </div>
+      <Footer color="black" />
     </div>
   );
 };

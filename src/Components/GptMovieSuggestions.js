@@ -13,7 +13,7 @@ const GptMovieSuggestions = () => {
 
   return (
     flatGptMovieList && (
-      <div className="text-blue font-bold text-lg bg-black bg-opacity-55 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center  py-4 mt-2">
+      <div className="text-blue font-bold text-lg bg-black bg-opacity-55 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center  py-4 mt-2 h-screen ">
         {flatGptMovieList.map((movie, index) => (
           <MovieCard
             posterPath={movie.poster_path}
